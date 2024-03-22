@@ -2,6 +2,6 @@
 
 int	main()
 {
-	//check all types of array to see if code works in all cases
+	//initialize all types of array to see if code works in all cases
 	return 0;
 }
