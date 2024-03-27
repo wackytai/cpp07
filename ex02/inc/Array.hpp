@@ -1,8 +1,9 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 # include <iostream>
+# include <array>
 
-template<typename T, unsigned int _size>
+template<typename T>
 class Array
 {
 	private:
@@ -14,13 +15,14 @@ class Array
 		Array( unsigned int n );
 		Array( const Array &obj );
 		~Array();
-		operator=( const Array &obj );
+		Array &operator=( const Array &obj );
 		unsigned int	size() const;
 		class	IndexOutOfBounds : public std::exception
 		{
 			public:
 				const char	*what( void ) const throw();
 		}
+		T	getArrayElem ( unsigned int i ) const;
 };
 
 #endif
