@@ -18,11 +18,6 @@ class Array
 		Array	&operator=( const Array<T> &obj );
 		T		&operator[]( unsigned int i );
 		unsigned int	size() const;
-		class	IndexOutOfBounds : public std::exception
-		{
-			public:
-				const char	*what( void ) const throw();
-		};
 		T	getArrayElem ( unsigned int i ) const;
 };
 

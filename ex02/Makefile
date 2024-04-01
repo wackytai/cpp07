@@ -1,7 +1,7 @@
 NAME = ar
 SOURCES = $(wildcard ./src/*)
 CC = @c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address,undefined
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -fsanitize=address,undefined -g
 
 all:	$(NAME)
 $(NAME):	$(SOURCES)

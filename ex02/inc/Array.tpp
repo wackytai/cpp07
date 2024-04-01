@@ -24,8 +24,7 @@ Array<T>::Array( const Array &obj )
 template<typename T>
 Array<T>::~Array()
 {
-	if (_array != NULL)
-		delete[] _array;
+	delete[] _array;
 }
 
 template<typename T>
@@ -33,11 +32,7 @@ Array<T>& Array<T>::operator=( const Array<T> &obj )
 {
 	if (this != &obj)
 	{
-		if (_array != NULL)
-		{
-			delete[] _array;
-			_array = NULL;
-		}
+		delete[] _array;
 		_size = obj.size();
 		_array = new T[_size];
 		for (unsigned int i = 0; i < _size; i++)
@@ -49,8 +44,8 @@ Array<T>& Array<T>::operator=( const Array<T> &obj )
 template<typename T>
 T&	Array<T>::operator[]( unsigned int i )
 {
-	if ( i > _size )
-		throw IndexOutOfBounds();
+	if (!_size || i >= _size )
+		throw std::exception();
 	return _array[i];
 }
 
@@ -64,12 +59,6 @@ template<typename T>
 T	Array<T>::getArrayElem ( unsigned int i ) const
 {
 	if ( i >= _size )
-		throw IndexOutOfBounds();
+		throw std::exception();
 	return _array[i];
-}
-
-template<typename T>
-const char	*Array<T>::IndexOutOfBounds::what( void ) const throw()
-{
-	return "Index is out of bounds.";
 }
