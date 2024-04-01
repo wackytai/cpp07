@@ -2,6 +2,7 @@
 
 int	main()
 {
-	//initialize all types of array to see if code works in all cases
+	int tab[] = {0, 1, 2, 3, 4};
+	iter(tab, 5, print<int>);
 	return 0;
 }
